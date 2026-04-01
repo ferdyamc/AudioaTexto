@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/9ffe67f035.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="CSS/estilos.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script><!--CDN "SweetAlert2"-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"> <!--Animate css-->
+    <title>Audio a texto</title>
+</head>
+<body>
+    <!--Cabecera-->
+    <header class="col-12">
+        <div id="contenedor-perfil" class="col-12 d-flex flex-wrap align-items-between px-3">
+                <div class="col-12 col-sm-2 col-xl-0 d-flex flex-row align-items-center">
+                    <i class="fa-solid fa-bars icon-menu text-light d-block d-xl-none" id="btn-menu-lateral"></i>
+                </div>
+                <div class="col-12 col-sm-10 col-xl-10 d-flex flex-row-reverse align-items-center">
+                    <div class="lang-dropdown col-12 col-sm-auto" id="lang-dropdown">
+                        <button class="lang-btn col-12" id="lang-btn">🌐 Traducir ▼</button>
+
+                        <div class="lang-menu col-12 col-sm-auto" id="lang-menu">
+
+                            <div class="lang-item" data-lang="es"><img src="https://flagcdn.com/w20/es.png" class="me-2">Español</div>
+                            <div class="lang-item" data-lang="en"><img src="https://flagcdn.com/w20/us.png" class="me-2">English</div>
+                            <div class="lang-item" data-lang="fr"><img src="https://flagcdn.com/w20/fr.png" class="me-2">Français</div>
+                            <div class="lang-item" data-lang="de"><img src="https://flagcdn.com/w20/de.png" class="me-2">Deutsch</div>
+                            <div class="lang-item" data-lang="it"><img src="https://flagcdn.com/w20/it.png" class="me-2">Italiano</div>
+                            <div class="lang-item" data-lang="pt"><img src="https://flagcdn.com/w20/pt.png" class="me-2">Português</div>
+                            <div class="lang-item" data-lang="ru"><img src="https://flagcdn.com/w20/ru.png" class="me-2">Русский</div>
+                            <div class="lang-item" data-lang="zh-CN"><img src="https://flagcdn.com/w20/cn.png" class="me-2">中文</div>
+                            <div class="lang-item" data-lang="ja"><img src="https://flagcdn.com/w20/jp.png" class="me-2">日本語</div>
+                            <div class="lang-item" data-lang="ko"><img src="https://flagcdn.com/w20/kr.png" class="me-2">한국어</div>
+                            <div class="lang-item" data-lang="ar"><img src="https://flagcdn.com/w20/sa.png" class="me-2">العربية</div>
+                            <div class="lang-item" data-lang="hi"><img src="https://flagcdn.com/w20/in.png" class="me-2">हिन्दी</div>
+
+                        </div>
+                    </div>
+
+                    
+                </div>
+        </div>
+    </header>
+    <main class="col-12">
+        <div class="subcontenedor-main col-12 d-flex flex-row">
+            <!--Lateral-->
+            <div class="col-0 col-xl-auto d-none d-xl-flex flex-column justify-content-between px-3 pb-3 pt-0 contenedor-side">
+                <ul id="opciones" class="col-12 p-0 animate__animated animate__fadeIn">
+                    <li class="col-12"><span class="d-block text-start px-3" id="menu-item-transcribir"><i class="fa-solid fa-file-signature pe-2" ></i> Transcribir audio</span></li>
+                    <li class="col-12"><span class="d-block text-start px-3" id="menu-item-contacto"><i class="fa-solid fa-envelope pe-2" ></i> Contacto</span></li>
+
+                </ul>
+                <footer class="col-12 animate__animated animate__fadeIn">
+                    <span class="d-block text-center col-12 mb-2">Desarrollado por</span>
+                    <span class="d-block text-center col-12">Ferdy Andrés Marulanda Carvajal</span>
+                </footer>
+            </div>
+            <!--Cuerpo-->
+            <div class="col-12 col-xl contenedor-cuerpo p-5 bg-dark" id="contenedor-cuerpo">
+                
+                <h1 class="animate__animated animate__fadeInDown">Audio a Texto<i class="fa-solid fa-file-signature ms-3"></i></h1>
+                <hr class="animate__animated animate__fadeIn">
+                <p class="animate__animated animate__fadeIn">Este es un proyecto independiente y de practica que permite transcribir audios a texto para facilitar su lectura, traducción o para el fin que requiera la persona que lo utilice. A futuro se irán agregando más funcionalidades que se complementarán con las ya existentes, atenderan nuevas necesidades y enriquecieran las bondades del sitio.</p>
+                <div class="mt-5 animate__animated animate__fadeIn">
+                    <input type="file" id="fileInput" hidden>
+                    <label for="fileInput" class="custom-file d-block d-lg-inline-block mb-3 mb-lg-0 text-center text-lg-start">Seleccionar archivo mp3</label>
+                    <span id="fileName" class="ms-0 ms-lg-3">Ningun archivo seleccionado</span>  
+                </div>
+                
+                <div class="h-auto col-12" id="contenedor-respuesta">
+                    <i class="fa-solid fa-eraser p-2" id="btn-borrado"></i>
+                    <p id="output" class="mt-5 bg-secondary respuesta"></p>
+                </div>
+                
+                
+            </div>
+        </div>
+        <div class="menu-2">
+            <div class="lightbox"></div>
+        </div>
+    </main>
+    <!-- Traductor oculto -->
+    <div id="google_translate_element" style="display:none;"></div>
+
+    <!-- 🔽 scripts SIEMPRE al final -->
+    <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'es',
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+    </script>
+
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="JS/audioatexto.js"></script>
+    <script src="JS/traducir.js"></script>
+    <script src="JS/menu2.js"></script>
+
+
+</body>
+</html>
