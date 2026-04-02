@@ -1,4 +1,3 @@
-
 const dropdown = document.getElementById("lang-dropdown")
 const btn = document.getElementById("lang-btn");
 

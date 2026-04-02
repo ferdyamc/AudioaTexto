@@ -1,6 +1,3 @@
-/*Captura del formulario*/
-
-
 /*Agregarle un evento de tipo "Submit" (Al enviar el fomulario)*/
 document.querySelector("#form").addEventListener('submit',handleSubmit)
 

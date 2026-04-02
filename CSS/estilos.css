@@ -30,6 +30,7 @@ font{
 .goog-te-gadget {
   font-size: 0 !important;
 }
+
 body {
   top: 0px !important;
   position: relative;
@@ -202,23 +203,34 @@ p, hr{
 }
 
 .menu-2{
-    position: absolute;
-    top: 0;
-    left: 0;
     display: none;
 }
 
 .menu-2, .lightbox{
     width: 100vw;
-    height: 100vh; 
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .lightbox{
     background-color: #2222228d;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(10px);
+    
 }
-
+.menu-2-cuerpo{
+    background: linear-gradient(#5c0d9f, #431768);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+}
 /* XX-Large devices (larger desktops, 1400px and up)*/
 @media (min-width: 1400px) { 
     .contenedor-side{
@@ -230,3 +242,8 @@ p, hr{
         border-top-right-radius: 10px;
     }
 }
+@media (min-width: 1199px) { 
+    .menu-2{
+        display: none !important;
+    }
+ }

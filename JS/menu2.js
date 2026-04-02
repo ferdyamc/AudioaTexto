@@ -1,3 +1,8 @@
+
+window.onload = function(){
+    let html = document.querySelector(".contenedor-side").innerHTML;
+document.querySelector(".menu-2-cuerpo").innerHTML = html;
+}
 document.querySelector(".lightbox").addEventListener("click", ()=>{
     document.querySelector(".menu-2").style.display="none";
 } )
