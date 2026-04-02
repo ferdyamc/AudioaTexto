@@ -1,7 +1,7 @@
 document.getElementById("fileInput").addEventListener("change", async (e) => {
   let fileNameText = document.getElementById("fileName");
   let output = document.getElementById("output");
-  const API_KEY = "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";
+  const API_KEY = "";
   const file = e.target.files[0];
     
   if (!file) return;
