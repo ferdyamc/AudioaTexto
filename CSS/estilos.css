@@ -231,6 +231,10 @@ p, hr{
     left: 50%;
     transform: translate(-50%, -50%); 
 }
+@media (min-width: 768px) {
+    h1{
+        font-size:32px
+    }
 /* XX-Large devices (larger desktops, 1400px and up)*/
 @media (min-width: 1400px) { 
     .contenedor-side{
