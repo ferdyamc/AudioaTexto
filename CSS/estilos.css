@@ -233,7 +233,7 @@ p, hr{
 }
 @media (max-width: 768px) {
     h1{
-        font-size:32px
+        font-size:32px !important;
     }
 /* XX-Large devices (larger desktops, 1400px and up)*/
 @media (min-width: 1400px) { 
